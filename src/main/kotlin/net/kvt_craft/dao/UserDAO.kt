@@ -1,6 +1,6 @@
 package net.kvt_craft.dao
 
-import net.kvt_craft.dto.CreateUserDTO
+import net.kvt_craft.dto.LoginDTO
 import net.kvt_craft.dto.RegisterDTO
 import net.kvt_craft.entities.User
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -10,12 +10,11 @@ class UserDAO {
         User.all().toList()
     }
 
-/*    fun add(user: CreateUserDTO) = transaction {
-        User.new {
-            name = user.name
-            email = user.email
-        }
-    }*/
+    fun findUserByEmail(email: String): LoginDTO? {
+        val allUsers = getAll()
+        val foundUser = allUsers.find { it.email.equals(email) }
+        return foundUser?.let { LoginDTO(foundUser.email, foundUser.password) }
+    }
 
     fun register(user: RegisterDTO) = transaction {
         User.new {
