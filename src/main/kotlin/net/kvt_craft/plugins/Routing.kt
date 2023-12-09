@@ -16,7 +16,7 @@ fun Application.configureRouting() {
 
 
         get("/login"){
-            val userLogIn = LogInUser("Hirlav Andrei", "andrei@gmail.com")
+            val userLogIn = LogInUser("andrei@gmail.com", "12345678")
             val userReceive = call.receive<UserDTO1>()
             if(findUser(userLogIn, userReceive)){
                 call.respondText("Autentificare cu succes")
