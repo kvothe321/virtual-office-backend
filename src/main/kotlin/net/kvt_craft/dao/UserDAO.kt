@@ -16,6 +16,13 @@ class UserDAO {
         return foundUser?.let { LoginDTO(foundUser.email, foundUser.password) }
     }
 
+    fun isPasswordCorrect(user: LoginDTO): Boolean {
+        val foundUser = findUserByEmail(user.email)
+        foundUser?.let {
+            return user.password == foundUser.password
+        } ?: return false
+    }
+
     fun register(user: RegisterDTO) = transaction {
         User.new {
             email = user.email

@@ -25,15 +25,16 @@ class UserService {
         }
     }
 
-    private fun findUserByEmail(email: String): LoginDTO? {
-        return userDAO.findUserByEmail(email)
-    }
+    private fun findUserByEmail(email: String): LoginDTO? = userDAO.findUserByEmail(email)
+
+    private fun isPasswordCorrect(user: LoginDTO): Boolean = userDAO.isPasswordCorrect(user)
+
 
     fun loginUser(user: LoginDTO): LoginResponseDTO {
         val messages = mutableListOf<String>()
 
         val foundUser = findUserByEmail(user.email)
-        if (foundUser == null) {
+        if (foundUser == null || isPasswordCorrect(user).not()) {
             messages.add("Wrong username or password")
         }
 
