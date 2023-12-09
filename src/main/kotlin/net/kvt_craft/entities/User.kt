@@ -7,15 +7,15 @@ import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.IntIdTable
 
 object Users : IntIdTable() {
-    val name = varchar("name", 255)
-    val email = varchar("email", 255)
+    val email = varchar("name", 255)
+    val password = varchar("email", 255)
 }
 
 class User(id: EntityID<Int>) : IntEntity(id) {
     companion object : IntEntityClass<User>(Users)
 
-    var name by Users.name
     var email by Users.email
+    var password by Users.password
 }
 
-internal fun User.toDTO() = UserDTO(id.value, name, email)
+internal fun User.toDTO() = UserDTO(id.value, email, password)
