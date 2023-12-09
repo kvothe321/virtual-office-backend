@@ -23,4 +23,6 @@ fun Route.userController() {
         val createdUser = userService.add(createUserRequest)
         call.respond(HttpStatusCode.Created, createdUser.toDTO())
     }
+
 }
+

@@ -10,4 +10,5 @@ class UserService {
     fun getAll(): List<User> = userDAO.getAll()
 
     fun add(user: CreateUserDTO): User = userDAO.add(user)
+
 }

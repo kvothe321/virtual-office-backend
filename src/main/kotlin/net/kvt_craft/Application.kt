@@ -4,6 +4,7 @@ import io.ktor.server.application.*
 import net.kvt_craft.plugins.configureContentNegotiation
 import net.kvt_craft.plugins.configureDatabase
 import net.kvt_craft.plugins.configureRouting
+import org.jetbrains.exposed.sql.Database
 
 fun main(args: Array<String>) {
     io.ktor.server.netty.EngineMain.main(args)
