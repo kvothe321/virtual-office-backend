@@ -20,12 +20,6 @@ fun Route.userController() {
         call.respond(users)
     }
 
-    /*  post("/user") {
-          val createUserRequest = call.receive<CreateUserDTO>()
-          val createdUser = userService.add(createUserRequest)
-          call.respond(HttpStatusCode.Created, createdUser.toDTO())
-      }*/
-
     post("/register") {
         val receivedRegisterBody = call.receive<RegisterDTO>()
 
@@ -38,7 +32,7 @@ fun Route.userController() {
         call.respond(HttpStatusCode.Created, receivedRegisterBody.toString())
     }
 
-    get("/login") {
+    post("/login") {
         val receivedLogInBody = call.receive<LoginDTO>()
 
         val loginResponse = userService.loginUser(receivedLogInBody)
