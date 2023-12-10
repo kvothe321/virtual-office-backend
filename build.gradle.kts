@@ -45,6 +45,7 @@ dependencies {
     implementation("org.postgresql:postgresql:42.3.8")
     implementation("com.zaxxer:HikariCP:5.0.1")
     implementation("com.typesafe:config:1.4.1")
+    implementation("io.ktor:ktor-server-websockets:$ktor_version")
 
     testImplementation("io.ktor:ktor-server-tests-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")

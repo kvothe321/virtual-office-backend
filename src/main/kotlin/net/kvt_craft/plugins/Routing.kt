@@ -3,6 +3,7 @@ package net.kvt_craft.plugins
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import net.kvt_craft.controllers.realTimePositionController
 import net.kvt_craft.controllers.userController
 
 fun Application.configureRouting() {
@@ -11,5 +12,6 @@ fun Application.configureRouting() {
             call.respondText("Hello World!")
         }
         userController()
+        realTimePositionController()
     }
 }

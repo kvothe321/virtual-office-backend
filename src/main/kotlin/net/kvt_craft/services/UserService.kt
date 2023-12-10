@@ -16,7 +16,7 @@ class UserService {
             messages.add("Passwords don't match")
         }
 
-        // TODO others verifications
+        // TODO: others verifications
         if (messages.isNotEmpty()) {
             return RegisterResponseDTO(RequestStatus.ERROR, messages)
         } else {
