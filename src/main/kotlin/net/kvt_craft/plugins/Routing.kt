@@ -11,6 +11,13 @@ fun Application.configureRouting() {
         get("/") {
             call.respondText("Hello World!")
         }
+        get("/login"){
+            call.respondText("Logare cu succes")
+        }
+
+        get("/register"){
+            call.respondText("Inregistrare cu succes")
+        }
         userController()
         realTimePositionController()
     }
